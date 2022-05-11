@@ -1,0 +1,15 @@
+<div class="articleCard">
+    <img class="articleCard__image" [src]="article.imageUrl" >
+    <div class="articleCard__textBlock">
+        <div class="publishingDate">
+            <img class = "publishingDate__icon" src="../../../../assets/images/icons/calendar.svg">
+            <p class = "publishingDate__date typography typography__14px">{{article.publishedAt}}</p>
+        </div>
+        <div class="articleCard__title typography typography__24px">{{article.title}}</div>
+        <div class="articleCard__description typography typography__16px">{{article.summary}}</div>
+        <a class = "articleCard__articleLink">
+            <p class = "typography typography__16px typography__bold">Read more</p>
+            <mat-icon class = "arrow-icon">east</mat-icon>
+        </a>
+    </div> 
+</div>
