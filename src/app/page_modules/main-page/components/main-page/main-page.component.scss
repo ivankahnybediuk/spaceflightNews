@@ -1,0 +1,42 @@
+@import "variables";
+
+
+:host{
+    display: block;
+    padding: 50px 73px;
+    max-width: 1290px;
+    margin: auto;
+}
+
+.filterTitle{
+    margin-bottom: 10px;
+}
+.filterInput{
+    display: block;
+    margin-bottom: 40px;
+}
+.searchResults{
+    width: 100%;
+    margin: auto;
+
+    &__resultsNote{
+        width: 100%;
+        border-bottom: 1px solid $border-grey ;
+    }
+
+    &__wrapper{
+        width: 100%;
+        margin-top: 45px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+}
+
+
+.articleCard{
+    margin-bottom: 45px;
+}
+

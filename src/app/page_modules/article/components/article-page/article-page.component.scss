@@ -1,0 +1,62 @@
+@import "variables";
+
+.article{
+    width: 100%;
+
+    &__img{
+        width: 100%;
+        height: 245px;
+        object-fit: cover;
+    }
+
+    &__wrapper{
+        position: relative;
+        background-color: white;
+        padding: 35px 75px 50px 75px;
+        margin: auto;
+        margin-top: -75px;
+        width: 1290px;
+        box-sizing: border-box;
+        min-height: 300px;
+        border: 1px solid $border-grey;
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+        border-radius: 5px;
+    }
+
+    &__title{
+        margin-bottom: 50px;
+    }
+
+    &__homeLink{
+        display: block;
+        width: 1290px;
+        margin: auto;
+        margin-top: 35px;
+        display: flex;
+        align-items: center;
+        color: $main-black;
+        text-decoration: none;
+    }
+    .arrow-icon{
+    margin-right: 6px;
+}
+}
+
+
+
+
+
+
+
+// <div class="article" *ngIf="article">
+//     <img class = "article__img" [src]="article.imageUrl">
+//     <div class="article__wrapper">
+//         <div class="article__title typography typography__24px">{{article.title}}</div>
+//         <div class="article__text typography typography__18px">{{article.summary}}</div>
+//     </div>
+//     <a class="article__homeLink" routerLink ="/">
+//         <p class="typography typography__16px typography__bold">Back to homepage</p>
+//         <mat-icon class="arrow-icon">west</mat-icon>
+//     </a>
+// </div>
+

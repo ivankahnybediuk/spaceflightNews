@@ -1,23 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ArticleSearchQuery } from '../../../../core/articleSearch/state/articleSearch.query';
+import { Subject, takeUntil } from 'rxjs';
+import { ArticleShort } from '../../../../entities/models/article';
+import { ArticleSearchService } from '../../../../core/articleSearch/services/article-search.service';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit {
-  article = {
-    id: 1,
-    title: "The 2020 World's Most Valuable Brands",
-    url: "/",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/00/Roman_Empire_Trajan_117AD.png",
-    summary: "Non sed molestie tortor massa vitae in mattis. Eget vel consequat hendrerit commodo libero aliquam. Urna arcu nunc tortor vitae pharetra...",
-    publishedAt: "June 29th, 2021",
-  }
+export class MainPageComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  private readonly _destroy$ = new Subject<void>();
+  
+  activeArticles: ArticleShort[] = [];
+
+  constructor(
+    private articleSearchService: ArticleSearchService,
+    private articleSearchQuery: ArticleSearchQuery
+  ) { }
 
   ngOnInit(): void {
+    this._subscribeToActiveArticles();
+    // this.mainPageService.fetchInitialArticles();
+  }
+
+  ngOnDestroy(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
+  }
+
+  updateSearchResults(value: string): void{
+    this.articleSearchService.updateSearchResults(value.split(' '))
+  }
+
+
+  private _subscribeToActiveArticles(): void{
+    this.articleSearchQuery.activeArticles$
+      .pipe(
+        takeUntil(this._destroy$)
+      )
+      .subscribe(_ => this.activeArticles = _)
   }
 
 }

@@ -1,0 +1,4 @@
+<div class="customInput">
+    <img class="customInput__icon" src="../../../assets/images/icons/search-icon.svg">
+    <input class="customInput__input typography" type="text" #input [placeholder]="placeholder" (keyup.enter) = "valueChanges($event.target.value)">
+</div>

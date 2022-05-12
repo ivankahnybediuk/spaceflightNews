@@ -1,0 +1,12 @@
+<div class="article" *ngIf="article">
+    <img class = "article__img" [src]="article.imageUrl">
+    <div class="article__wrapper">
+        <div class="article__title typography typography__24px">{{article.title}}</div>
+        <div class="article__text typography typography__18px">{{article.summary}}</div>
+    </div>
+    <a class="article__homeLink" routerLink ="/">
+        <mat-icon class="arrow-icon">west</mat-icon>
+        <p class="typography typography__16px typography__bold">Back to homepage</p>
+    </a>
+</div>
+

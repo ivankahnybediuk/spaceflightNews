@@ -1,4 +1,17 @@
-<p>main-page works!</p>
-<app-article-card
-    [article] = "article"
-></app-article-card>
+
+<p class = "filterTitle typography typography__semiBold">Filter by keywords</p>
+<app-custom-input 
+    placeholder = "The most successful IT companies in 2020"
+    (onValueChange) = "updateSearchResults($event)"
+    class = "filterInput"
+    ></app-custom-input>
+<div class="searchResults">
+    <div class="searchResults__resultsNote typography typography__16px typography__semiBold">Results: {{activeArticles.length}}</div>
+    <div class="searchResults__wrapper" *ngIf="activeArticles.length">
+        <app-article-card  class = "articleCard" *ngFor="let article of activeArticles" [article]="article"></app-article-card>
+        
+    </div>
+</div>
+
+
+
